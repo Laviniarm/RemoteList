@@ -13,7 +13,7 @@ public class Log {
     public void Operation(String operation, String listId, Integer value, int logId) {
         lock.lock();
         try (FileWriter writer = new FileWriter(logFile, true)) {
-            writer.write(operation + ";" + listId + ";" + (value != null ? value : "")+ ";" + logId + "\n");
+            writer.write(operation + ";" + listId + ";" + (value != null ? value : "") + ";" + logId + "\n");
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

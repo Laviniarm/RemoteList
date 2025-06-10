@@ -13,7 +13,10 @@ public class RemoteListCliente {
             if (sucesso) {
                 System.out.println("Valor adicionado com sucesso!");
             }
-            service.append("Lista1", 2);
+            boolean sucesso2 = service.append("Lista1", 2);
+            if (sucesso2) {
+                System.out.println("Valor adicionado com sucesso!");
+            }
 
             System.out.println("Valor na posição 0: " + service.get("Lista1", 0));
             System.out.println("Tamanho da lista1: " + service.size("Lista1"));
