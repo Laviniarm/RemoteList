@@ -11,7 +11,7 @@ Este projeto apresenta um sistema de compartilhamento de listas via RMI, focado 
 
 ## Limitações Atuais
 
-Apesar da robustez na consistência, o sistema possui limitações importantes:
+Apesar da robustez na consistência, o sistema possui limitações:
 
 - **Baixa Escalabilidade**: Todas as operações de escrita são serializadas por um único servidor, criando um gargalo de desempenho sob alta carga.
 - **Disponibilidade Limitada**: É um ponto único de falha (SPOF). Uma falha no servidor causa inatividade total do serviço, exigindo reinício manual.
@@ -20,14 +20,14 @@ Apesar da robustez na consistência, o sistema possui limitações importantes:
 
 ## Como Melhorar (e os Trade-offs)
 
-Para aumentar a escalabilidade e a disponibilidade, considere:
+Para aumentar a escalabilidade e a disponibilidade:
 
 - **Locks Por Lista**: Permite concorrência total em operações de escrita em listas diferentes, mas o servidor continua sendo um SPOF.
 - **Arquitetura Distribuída (Sharding/Replicação)**:
   - **Sharding**: Distribui listas entre vários servidores para escalabilidade horizontal.
   - **Replicação**: Cria cópias redundantes do servidor para alta disponibilidade.
 
-### 🧠 O Grande Trade-off
+### O Grande Trade-off
 
 Isso exige escolher entre:
 
